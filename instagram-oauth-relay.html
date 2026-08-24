@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent OS — Returning to app…</title>
+<style>
+  :root {
+    --bg: oklch(0.14 0.008 255); --ink: oklch(0.94 0.006 80); --ink-2: oklch(0.78 0.01 255);
+    --accent: oklch(0.68 0.185 38); --accent-hi: oklch(0.74 0.185 42);
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg: oklch(0.965 0.004 80); --ink: oklch(0.22 0.01 255); --ink-2: oklch(0.35 0.012 255); --accent: oklch(0.62 0.19 38); --accent-hi: oklch(0.56 0.19 38); }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); color:var(--ink); font-family:var(--font); text-align:center; }
+  .box { max-width: 360px; padding: 24px; }
+  .spin { width:28px; height:28px; margin:0 auto 18px; border-radius:50%; border:3px solid color-mix(in oklch, var(--accent) 25%, transparent); border-top-color: var(--accent-hi); animation: sp 0.8s linear infinite; }
+  @media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  h1 { font-size: 16px; margin: 0 0 6px; }
+  p { font-size: 13.5px; color: var(--ink-2); margin: 0; }
+  noscript p { color: oklch(0.66 0.19 25); }
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="spin"></div>
+    <h1>Returning to Agent OS…</h1>
+    <p>Do not close this tab — you'll be redirected automatically.</p>
+    <noscript><p>JavaScript is required to complete this step.</p></noscript>
+  </div>
+  <script>
+    window.location.replace("http://localhost:4100/api/instagram/callback" + window.location.search);
+  </script>
+</body>
+</html>
